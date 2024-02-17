@@ -16,12 +16,14 @@ class CityRepository{
                 where: {
                     id: cityId
                 }
-            })
+            });
+            return true;
         }catch (error){
             console.log("Something went wrong in the repository layer");
             throw{error};
         }
     }
+    //data here is object name:"pragraj" means updating name with pragraj
     async updateCity(cityId,data){
         try{
           const city=await City.update(data,{
@@ -29,6 +31,7 @@ class CityRepository{
                 id: cityId
             }
           });
+          return city;
         }catch (error){
             console.log("Something went wrong in the repository layer");
             throw {error};
