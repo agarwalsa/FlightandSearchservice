@@ -1,7 +1,7 @@
 const{City}=require('../models/index');
 
 class CityRepository{
-    
+
     async createCity({name}){
         try{
             const city = await City.create({name});
@@ -27,11 +27,14 @@ class CityRepository{
     //data here is object name:"pragraj" means updating name with pragraj
     async updateCity(cityId,data){
         try{
-          const city=await City.update(data,{
-            where:{
-                id: cityId
-            }
-          });
+        //   const city=await City.update(data,{
+        //     where:{
+        //         id: cityId
+        //     }
+        //   });
+        const city=await City.findByPk(cityId);
+        city.name=data.name;
+        await city.save();
           return city;
         }catch (error){
             console.log("Something went wrong in the repository layer");
@@ -41,8 +44,8 @@ class CityRepository{
     async getCity(cityId)
     {
         try{
-         const City=await City.findByPk(cityId);
-            return City;
+         const city=await City.findByPk(cityId);
+            return city;
         }catch (error){
             console.log("Something went wrong in the repository layer");
             throw {error};
