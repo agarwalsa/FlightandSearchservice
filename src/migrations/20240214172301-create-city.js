@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      data: {
+        type: Sequelize.TEXT // Use TEXT data type to store JSON data as a string
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,

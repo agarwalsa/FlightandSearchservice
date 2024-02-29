@@ -19,6 +19,25 @@ return res.status(201).json({
     });
 }
 }
+const createCities=async (req,res) => {
+    try{
+        const city=await cityService.createCities(req.body);
+        return res.status(201).json({
+            data: city,
+            success: true,
+            message: "successfully created the cities",
+            error: {}
+        });
+        }catch(error){
+            console.log(error);
+            return res.status(500).json({
+                data: {},
+                success: false,
+                message: "city creation not successful",
+                error: error
+            });
+        }
+}
 const destroy = async (req,res) => {
     try{
         const response =await cityService.deleteCity(req.params.id);
@@ -79,18 +98,17 @@ const get = async (req,res) => {
 const getAll = async (req,res) => {
     try{
     const cities = await cityService.getAllCities(req.query);
-    // return cities;
     return res.status(200).json({
-        data : cities,
-        success : true,
+        // data : cities,
+        // success : true,
         message : "successfully get all the cities",
         error: {}
     });
     }catch(error){
         console.log(error);
         return res.status(500).json({
-            data: {},
-            success: false,
+            // data: {},
+            // success: false,
             message: "city get all the is not successful",
             error: error
         });
@@ -98,6 +116,7 @@ const getAll = async (req,res) => {
 }
 module.exports={
     create,
+    createCities,
     destroy,
     update,
     get,

@@ -14,5 +14,6 @@ One airport can have multiple flights but one flights belongs to a one airport
 
 
 #airport->id,address,name,city_id,created_at,updated_at
+
 Relationship City has many airports and airport belongs to a city(one to many relationship)
 
