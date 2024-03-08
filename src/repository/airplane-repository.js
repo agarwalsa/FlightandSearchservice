@@ -9,4 +9,4 @@ class AirplaneRepository{
         throw {error};
     }
 }
-module.exports = {AirplaneRepository};
+module.exports = AirplaneRepository;

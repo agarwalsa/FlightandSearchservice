@@ -43,7 +43,6 @@ class CityService{
     }
     async getAirports(cityId){
         try{
-            const id=cityId;
             const city= await this.cityRepository.getAirports(cityId);
             return city;
         }catch(error){

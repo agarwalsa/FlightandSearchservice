@@ -1,6 +1,6 @@
 const {FlightRepository} = require('../repository/index');
 
-const{AirplaneRepository} = require('../repository/airplane-repository');
+const{AirplaneRepository} = require('../repository/index');
 const {compareTime} = require('../utils/helper');
 class FlightService
 {

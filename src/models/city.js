@@ -21,10 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true
-    },
-    data: {
-      type: DataTypes.TEXT, // Use TEXT data type to store JSON data as a string
-      allowNull: true // Allow null if the column is optional
     }
   }, {
     sequelize,
