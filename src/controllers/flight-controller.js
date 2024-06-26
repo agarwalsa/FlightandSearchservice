@@ -50,7 +50,47 @@ const getAll = async (req,res) => {
         });
     }
 }
+const get = async (req,res) => {
+  try{
+    const response = await flightService.getFlight(req.params.id);
+    return res.status(SuccessCodes.OK).json({
+      data:response,
+      success:true,
+       message:"able to fetch  the flight in a successful manner here",
+      error:{}
+    });
+  }catch(error){
+    console.log(error);
+    return res.status(500).json({
+      data:{},
+      success:false,
+      message:"not able to get the  flights",
+      error:error
+    });
+  }
+}
+const update = async (req,res) => {
+  try{
+    const response = await flightService.updateFlight(req.params.id,req.body);
+    return res.status(SuccessCodes.OK).json({
+      data:response,
+      success:true,
+       message:"able to updatedd  the flight in a successful manner here",
+      error:{}
+    });
+  }catch(error){
+    console.log(error);
+    return res.status(500).json({
+      data:{},
+      success:false,
+      message:"not able to update over here the  flights",
+      error:error
+    });
+  }
+}
 module.exports={
     create,
-    getAll
+    getAll,
+    update,
+    get
 }

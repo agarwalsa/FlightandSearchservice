@@ -36,6 +36,7 @@ class CityRepository{
     //data here is object name:"pragraj" means updating name with pragraj
     async updateCity(cityId,data){
         try{
+            //the below approach work fine but will not return the updated object so we used this new one which will return an updated 
         //   const city=await City.update(data,{
         //     where:{
         //         id: cityId

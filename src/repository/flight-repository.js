@@ -39,16 +39,16 @@ class FlightRepository{
              throw {error};
         }
     }
-    // async getFlight(flightId)
-    // {
-    //     try{
-    //          const flight = Flights.findByPk(flightId);
-    //          return flight;
-    //     }catch(error){
-    //         console.log("something went wrong in the repository layer");
-    //         throw {error};
-    //     }
-    // }
+    async getFlight(flightId)
+    {
+        try{
+             const flight = Flights.findByPk(flightId);
+             return flight;
+        }catch(error){
+            console.log("something went wrong in the repository layer");
+            throw {error};
+        }
+    }
     async getAllFlight(data)
     {
         try{
@@ -58,6 +58,20 @@ class FlightRepository{
              });
              return flight;
         }catch(error){
+            console.log("something went wrong in the repository layer");
+            throw {error};
+        }
+    }
+    async updateFlight(flightId,data){
+        try{
+            await Flights.update(data,{
+             where:{
+                 id:flightId
+             }
+            });
+            return true;
+        }catch(error){
+            
             console.log("something went wrong in the repository layer");
             throw {error};
         }
